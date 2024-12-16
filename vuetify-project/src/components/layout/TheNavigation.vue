@@ -8,9 +8,14 @@
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
         <v-app-bar-title>Application Bar</v-app-bar-title>
     </v-app-bar>
-    <v-navigation-drawer color="grey-darken-2" ></v-navigation-drawer>
+
+    <!-- <v-navigation-drawer
+    >
+        Test
+        <v-list-item title="My application" subtitle="Vuetify"></v-list-item>
+        <v-divider></v-divider>
+        <v-list-item link title="List Item 1"></v-list-item>
+        <v-list-item link title="List Item 2"></v-list-item>
+        <v-list-item link title="List Item 3"></v-list-item>
+    </v-navigation-drawer> -->
 </template>
-
-<script>
-
-</script>
