@@ -1,4 +1,0 @@
-<template>
-    learn vuex 
-
-</template>
