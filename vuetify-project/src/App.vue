@@ -7,7 +7,9 @@
       Main Content
     </v-main>
 
-    <v-footer
+    <the-footer></the-footer>
+
+    <!-- <v-footer
       name="footer"
       app
     >
@@ -18,7 +20,7 @@
       >
         Get data
       </v-btn>
-    </v-footer>
+    </v-footer> -->
     <!-- <the-navigation></the-navigation> -->
     <!-- <v-main>
       <router-view />
@@ -28,6 +30,7 @@
 
 // <script setup>
 import TheNavigation from './components/layout/TheNavigation.vue';
+import TheFooter from './components/layout/TheFooter.vue';
 //   //
 
   import { useLayout } from 'vuetify'
