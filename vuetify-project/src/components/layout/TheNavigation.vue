@@ -1,5 +1,6 @@
 <template>
     <v-app-bar 
+        class="mx-auto"
         scroll-behavior="hide collapse elevate fade-image"
         scroll-threshold="20"
         color="grey-lighten-2" 
@@ -10,14 +11,14 @@
     </v-app-bar>
 
     <v-navigation-drawer
-        v-model="visible"
+      v-model="visible"
+      color="grey-darken-2"
+      permanent
     >
-        <v-list-item title="Menu aplikacji" subtitle="TodoList"></v-list-item>
+        <v-list-item title="Menu aplikacji" subtitle="Podtytuł"></v-list-item>
         <v-divider></v-divider>
-        <v-list-item link title="List Item 1"></v-list-item>
-        <v-list-item link title="List Item 2"></v-list-item>
-        <v-list-item link title="List Item 3"></v-list-item>
-    </v-navigation-drawer>
+        <v-list-item link title="Link 1"></v-list-item>
+    </v-navigation-drawer> 
 </template>
 
 <script setup>
