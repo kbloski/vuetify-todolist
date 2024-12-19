@@ -14,10 +14,12 @@
       v-model="visible"
       color="grey-darken-2"
       permanent
+      @click="toggleVisible"
     >
         <v-list-item title="Menu aplikacji" subtitle="Podtytuł"></v-list-item>
         <v-divider></v-divider>
-        <v-list-item link title="Link 1"></v-list-item>
+        <v-list-item link title="Home" to="/"></v-list-item>
+        <v-list-item link title="About Me" to="/about-me"></v-list-item>
     </v-navigation-drawer> 
 </template>
 
