@@ -4,27 +4,10 @@
     
 
     <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
-      Main Content
+      <router-view></router-view>
     </v-main>
 
     <the-footer></the-footer>
-
-    <!-- <v-footer
-      name="footer"
-      app
-    >
-      <v-btn
-        class="mx-auto"
-        variant="text"
-        @click="print('footer')"
-      >
-        Get data
-      </v-btn>
-    </v-footer> -->
-    <!-- <the-navigation></the-navigation> -->
-    <!-- <v-main>
-      <router-view />
-    </v-main> -->
   </v-app>
 </template>
 
