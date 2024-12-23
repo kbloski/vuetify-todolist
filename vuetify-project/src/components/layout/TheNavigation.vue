@@ -1,15 +1,5 @@
 <template>
-    <v-app-bar
-        class="mx-auto"
-        scroll-behavior="hide collapse elevate fade-image"
-        scroll-threshold="20"
-        color="grey-lighten-2"
-        image="/logo.png"
-    >
-        <v-app-bar-nav-icon @click="toggleVisible"></v-app-bar-nav-icon>
-        <v-app-bar-title>Application Bar</v-app-bar-title>
-    </v-app-bar>
-
+   
     <v-navigation-drawer v-model="visible" color="grey-darken-2" permanent>
         <!-- @click="toggleVisible" -->
         <v-list>
@@ -35,7 +25,19 @@
                 </template>
             </v-list-item>
         </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> 
+    
+    <v-app-bar
+        class="mx-auto"
+        scroll-behavior="hide collapse elevate fade-image"
+        scroll-threshold="20"
+        color="grey-lighten-2"
+        image="/logo.png"
+    >
+        <v-app-bar-nav-icon @click="toggleVisible"></v-app-bar-nav-icon>
+        <v-app-bar-title>Application Bar</v-app-bar-title>
+    </v-app-bar>
+
 </template>
 
 <script setup>
