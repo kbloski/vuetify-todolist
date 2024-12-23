@@ -27,6 +27,8 @@
                 link
                 :title="link.text"
                 :to="link.path"
+                active-color="white"
+                active-class="akctive-test-item"
             >
                 <template v-slot:prepend>
                     <v-icon :icon="link.icon"></v-icon>
@@ -50,3 +52,12 @@ const links = [
     { text: "About Me", icon: "mdi-star", path: "/about-me" },
 ];
 </script>
+
+<style>
+.akctive-test-item {
+    color: red;
+    position: absolute;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+}
+</style>
