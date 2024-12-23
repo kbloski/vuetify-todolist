@@ -14,9 +14,9 @@
         <!-- @click="toggleVisible" -->
         <v-list>
             <v-list-item
-                prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
-                subtitle="example@google.com"
+                prepend-avatar="/logo.png"
                 title="Kamil Błoński"
+                subtitle="Todo List"
             ></v-list-item>
         </v-list>
 
