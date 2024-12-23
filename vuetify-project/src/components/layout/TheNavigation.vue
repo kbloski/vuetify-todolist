@@ -21,16 +21,18 @@
         </v-list>
 
         <v-divider></v-divider>
-        <v-list-item link title="Home" to="/">
-            <template v-slot:prepend>
-                <v-icon :icon="'mdi-folder'"></v-icon>
-            </template>
-        </v-list-item>
-        <v-list-item link title="About Me" to="/about-me">
-            <template v-slot:prepend>
-                <v-icon icon="mdi-star"></v-icon>
-            </template>
-        </v-list-item>
+        <v-list>
+            <v-list-item
+                v-for="link in links"
+                link
+                :title="link.text"
+                :to="link.path"
+            >
+                <template v-slot:prepend>
+                    <v-icon :icon="link.icon"></v-icon>
+                </template>
+            </v-list-item>
+        </v-list>
     </v-navigation-drawer>
 </template>
 
@@ -43,5 +45,8 @@ function toggleVisible() {
     visible.value = !visible.value;
 }
 
-const items = [{ text: "My Files", icon: "mdi-folder" }];
+const links = [
+    { text: "Home", icon: "mdi-folder", path: "/" },
+    { text: "About Me", icon: "mdi-star", path: "/about-me" },
+];
 </script>
