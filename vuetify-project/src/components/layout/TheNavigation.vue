@@ -6,7 +6,7 @@
             <v-list-item
                 prepend-avatar="/logo.png"
                 title="Kamil Błoński"
-                subtitle="Todo List"
+                subtitle="To Do List"
             ></v-list-item>
         </v-list>
 
@@ -17,8 +17,6 @@
                 link
                 :title="link.text"
                 :to="link.path"
-                active-color="white"
-                active-class="akctive-test-item"
             >
                 <template v-slot:prepend>
                     <v-icon :icon="link.icon"></v-icon>
@@ -28,14 +26,14 @@
     </v-navigation-drawer> 
     
     <v-app-bar
-        class="mx-auto"
+        class="mx-auto elevation-7"
         scroll-behavior="hide collapse elevate fade-image"
         scroll-threshold="20"
-        color="grey-lighten-2"
-        image="/logo.png"
+        color="white"
+        
     >
         <v-app-bar-nav-icon @click="toggleVisible"></v-app-bar-nav-icon>
-        <v-app-bar-title>Application Bar</v-app-bar-title>
+        <v-app-bar-title>To Do List</v-app-bar-title>
     </v-app-bar>
 
 </template>
@@ -55,11 +53,3 @@ const links = [
 ];
 </script>
 
-<style>
-.akctive-test-item {
-    color: red;
-    position: absolute;
-    transform: translateX(20px);
-    transition: all 0.3s ease;
-}
-</style>
