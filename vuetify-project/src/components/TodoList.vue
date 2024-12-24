@@ -1,4 +1,5 @@
 <template>
+    <div>
     <v-text-field 
         label="Add Task"
         v-on:keyup.enter="addTask"
@@ -8,10 +9,15 @@
   <lists-tasks 
     :tasks="tasks"
   />
+
+        <DialogTask />
+    </div>
 </template>
 
 <script setup>
 import ListsTasks from './ListsTasks.vue';
+import DialogTask from './DialogTask.vue';
+
 import { provide, reactive, ref} from 'vue';
 
 const tasksSelection = ref([]);
