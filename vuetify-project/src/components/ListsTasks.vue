@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mx-auto" max-width="400">
+  <div class="mx-auto" max-width="400">
     <v-divider></v-divider>
 
     <v-list
@@ -42,28 +42,41 @@
                 <v-list-item
                 value='edit'
                 >
-                    <v-list-item-title>Edit</v-list-item-title>
+                    <v-list-item-title
+                        @click="toggleDialog"
+                    >
+                    Edit</v-list-item-title>
                 </v-list-item>
                 <v-list-item
                 value='delete'
                 >
-                    <v-list-item-title>Delete</v-list-item-title>
+                    <v-list-item-title
+                        @click="toggleDialog"
+                    >Delete</v-list-item-title>
                 </v-list-item>
             </v-list>
     </v-menu>
         </template>
       </v-list-item>
     </v-list>
-  </v-container>
+
+    <DialogTask :dialog="showDialogTaskFields" @toggle="toggleDialog"/>
+  </div>
 </template>
 
 <script setup>
-import { inject, watch } from 'vue';
+import DialogTask from './DialogTask.vue';
+import { inject, watch, ref } from 'vue';
 
 const props = defineProps({
     tasks: Object
 })
 
-const tasksSelection = inject('tasksSelection')
+const tasksSelection = ref([]);
+
+const showDialogTaskFields = ref(false);
+function toggleDialog(){
+    showDialogTaskFields.value = !showDialogTaskFields.value;
+}
 
 </script>

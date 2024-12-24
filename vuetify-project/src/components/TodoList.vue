@@ -9,19 +9,13 @@
   <lists-tasks 
     :tasks="tasks"
   />
-
-        <DialogTask />
     </div>
 </template>
 
 <script setup>
 import ListsTasks from './ListsTasks.vue';
-import DialogTask from './DialogTask.vue';
 
 import { provide, reactive, ref} from 'vue';
-
-const tasksSelection = ref([]);
-provide('tasksSelection', tasksSelection)
 
 const tasks =  ref([
         { 

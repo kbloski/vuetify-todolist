@@ -1,15 +1,15 @@
 <template>
   <div class="text-center pa-4">
     <v-dialog
-      v-model="dialog"
+      v-model="props.dialog"
       max-width="400"
       persistent
     >
-      <template v-slot:activator="{ props: activatorProps }">
+      <!-- <template v-slot:activator="{ props: activatorProps }">
         <v-btn v-bind="activatorProps">
           Open Dialog
         </v-btn>
-      </template>
+      </template> -->
 
       <v-card
         prepend-icon="mdi-map-marker"
@@ -19,11 +19,11 @@
         <template v-slot:actions>
           <v-spacer></v-spacer>
 
-          <v-btn @click="dialog = false">
+          <v-btn @click="toggleEmit">
             Disagree
           </v-btn>
 
-          <v-btn @click="dialog = false">
+          <v-btn @click="toggleEmit">
             Agree
           </v-btn>
         </template>
@@ -33,8 +33,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits, defineProps } from 'vue';
 
-const dialog = ref(false);
+const props = defineProps({
+    dialog: Boolean
+})
+
+const emits = defineEmits(['toggle'])
+
+function toggleEmit(){
+    emits('toggle', true)
+}
+
 
 </script>
