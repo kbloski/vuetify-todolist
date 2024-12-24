@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="400">
+  <v-container class="mx-auto" max-width="400">
   <v-text-field 
     label="Add Task"
     v-on:keyup.enter="addTask"
@@ -25,9 +25,41 @@
             <v-checkbox-btn :model-value="isSelected"></v-checkbox-btn>
           </v-list-item-action>
         </template>
+         <template v-slot:append>
+          
+
+           <v-menu>
+            <template v-slot:activator="{ props }">
+                <v-btn
+                    color="primary"
+                    variant="text"
+                    icon="mdi-chevron-down"
+                    v-bind="props"
+                ></v-btn>
+            </template>
+            <!-- 
+                <!-- <v-btn
+                color="primary"
+                >
+                Activator slot
+                </v-btn> -->
+            <v-list>
+                <v-list-item
+                :value="''"
+                >
+                    <v-list-item-title>Edit</v-list-item-title>
+                </v-list-item>
+                <v-list-item
+                :value="''"
+                >
+                    <v-list-item-title>Delete</v-list-item-title>
+                </v-list-item>
+            </v-list>
+    </v-menu>
+        </template>
       </v-list-item>
     </v-list>
-  </v-card>
+  </v-container>
 </template>
 
 <script setup>
