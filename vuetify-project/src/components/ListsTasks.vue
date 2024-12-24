@@ -1,10 +1,5 @@
 <template>
   <v-container class="mx-auto" max-width="400">
-  <v-text-field 
-    label="Add Task"
-    v-on:keyup.enter="addTask"
-    v-model="task.title"
-  ></v-text-field>
     <v-divider></v-divider>
 
     <v-list
@@ -45,12 +40,12 @@
                 </v-btn> -->
             <v-list>
                 <v-list-item
-                :value="''"
+                value='edit'
                 >
                     <v-list-item-title>Edit</v-list-item-title>
                 </v-list-item>
                 <v-list-item
-                :value="''"
+                value='delete'
                 >
                     <v-list-item-title>Delete</v-list-item-title>
                 </v-list-item>
@@ -63,35 +58,12 @@
 </template>
 
 <script setup>
-import { reactive, ref} from 'vue';
+import { inject, watch } from 'vue';
 
-const tasksSelection = ref([]);
-const tasks =  ref([
-        { 
-            value: 'notifications', 
-            title: 'Task Vue 1', 
-            description: 'Notify me about updates to apps or games that I downloaded' 
-        },
-        { 
-            value: 'documentaction', 
-            title: 'Learn documantation', 
-            description: 'Notify me about updates to apps or games that I downloaded' 
-        },
-])
-
-const task = reactive({
-    title: '',
-    description: ''
+const props = defineProps({
+    tasks: Object
 })
 
-function addTask(){
-    tasks.value.push({
-        value: Math.random(),
-        title: task.title,
-        description: task.description,
-    })
+const tasksSelection = inject('tasksSelection')
 
-    task.title = '';
-    task.description = '';
-}
 </script>
