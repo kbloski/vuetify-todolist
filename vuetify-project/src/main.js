@@ -3,7 +3,9 @@
  *
  * Bootstraps Vuetify and other plugins then mounts the App`
  */
-import pinia from '@/store/index'
+
+import { createPinia } from 'pinia'
+const pinia = createPinia();
 
 // Plugins
 import { registerPlugins } from '@/plugins'
@@ -15,8 +17,8 @@ import App from './App.vue'
 import { createApp } from 'vue'
 
 const app = createApp(App)
+app.use( pinia)
 
 registerPlugins(app)
-app.use(pinia)
 
 app.mount('#app')

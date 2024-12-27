@@ -20,20 +20,23 @@
 <script setup>
 import ListsTasks from './ListsTasks.vue';
 
-import { provide, reactive, ref} from 'vue';
+import { computed, provide, reactive, ref} from 'vue';
+import { useTaskStore } from '@/store/task';
 
-const tasks =  ref([
-        { 
-            value: 'notifications', 
-            title: 'Task Vue 1', 
-            description: 'Notify me about updates to apps or games that I downloaded' 
-        },
-        { 
-            value: 'documentaction', 
-            title: 'Learn documantation', 
-            description: 'Notify me about updates to apps or games that I downloaded' 
-        },
-])
+const taskStore = useTaskStore();
+const tasks = computed( () => taskStore.tasks);
+// const tasks =  ref([
+//         { 
+//             value: 'notifications', 
+//             title: 'Task Vue 1', 
+//             description: 'Notify me about updates to apps or games that I downloaded' 
+//         },
+//         { 
+//             value: 'documentaction', 
+//             title: 'Learn documantation', 
+//             description: 'Notify me about updates to apps or games that I downloaded' 
+//         },
+// ])
 
 const task = reactive({
     title: '',
@@ -41,18 +44,17 @@ const task = reactive({
 })
 
 function addTask(){
-    tasks.value.push({
-        value: Math.random(),
+    taskStore.addTask( {
         title: task.title,
-        description: task.description,
-    })
+        description: task.description
+    } )
 
     task.title = '';
     task.description = '';
 }
 
 function deleteTask( index ){
-    tasks.value.splice(index, 1)
+    taskStore.deleteTask( index )
 }
 
 provide('deleteTask', deleteTask)
