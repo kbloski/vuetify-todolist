@@ -17,6 +17,7 @@ import { reactive, ref} from 'vue';
 
 import { useTaskStore } from '@/store/task';
 const taskStore = useTaskStore();
+taskStore.getLocalData()
 
 const task = reactive({
     title: '',

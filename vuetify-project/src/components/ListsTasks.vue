@@ -53,7 +53,7 @@
             <DialogDelete
                 :dialog="showDialogDelete"
                 @toogle="toggleDelete"
-                @delete="deleteTask"
+                @delete="taskStore.deleteTask"
             ></DialogDelete>
           </div>
         </teleport>
@@ -84,8 +84,5 @@ function toggleDelete(index) {
     if (index != null) taskStore.indexTaskSelected = index;
 }
 
-function deleteTask() {
-  taskStore.deleteTask( )
-}
 
 </script>
