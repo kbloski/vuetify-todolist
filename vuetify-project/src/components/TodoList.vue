@@ -50,4 +50,10 @@ function addTask(){
     task.title = '';
     task.description = '';
 }
+
+function deleteTask( index ){
+    tasks.value.splice(index, 1)
+}
+
+provide('deleteTask', deleteTask)
 </script>

@@ -34,11 +34,7 @@
           <v-spacer></v-spacer>
 
           <v-btn @click="toggleEmit">
-            Disagree
-          </v-btn>
-
-          <v-btn @click="toggleEmit">
-            Agree
+            OK
           </v-btn>
         </template>
       </v-card>
