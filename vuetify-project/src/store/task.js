@@ -4,6 +4,7 @@ export const useTaskStore = defineStore('task',
     {
     state: () => {
         return {
+            indexTaskSelected: 0,
             tasks: [
                     { 
                         value: 'notifications', 
@@ -19,10 +20,10 @@ export const useTaskStore = defineStore('task',
         }
     },
     actions: {
-        deleteTask( index ){
-            this.tasks.splice(index, 1)
+        deleteTask(){
+            if (!this.indexTaskSelected) return;
+            this.tasks.splice( this.indexTaskSelected, 1)
         },
-
         addTask( task ){
             this.tasks.push( task)
         }

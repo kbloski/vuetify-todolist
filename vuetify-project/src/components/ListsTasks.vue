@@ -5,7 +5,7 @@
         <v-list v-model:selected="tasksSelection" lines="three" select-strategy="leaf">
             <v-list-subheader>General</v-list-subheader>
             <v-list-item
-                v-for="(item, index) in tasks"
+                v-for="(item, index) in taskStore.tasks"
                 :key="item.value"
                 :subtitle="item.description"
                 :title="item.title"
@@ -46,7 +46,7 @@
         <DialogTask
             :dialog="showDialogTaskFields"
             @toggle="toggleEdit"
-            :task="tasks[indexTaskSelected]"
+            :task="taskStore.tasks[taskStore.indexTaskSelected]"
         />
         <DialogDelete
             :dialog="showDialogDelete"
@@ -57,33 +57,31 @@
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
 import DialogTask from "./DialogTask.vue";
 import DialogDelete from "./DialogDelete.vue";
-import { inject, watch, ref } from "vue";
 import { useTaskStore } from "@/store/task";
 
-const props = defineProps({
-    tasks: Object,
-});
 
 const taskStore = useTaskStore();
+
+
 const tasksSelection = ref([]);
-const indexTaskSelected = ref(0);
 
 const showDialogTaskFields = ref(false);
 function toggleEdit(index) {
     showDialogTaskFields.value = !showDialogTaskFields.value;
-    if (index) indexTaskSelected.value = index;
+    if (index != null) taskStore.indexTaskSelected = index;
 }
 
 const showDialogDelete = ref(false);
 function toggleDelete(index) {
     showDialogDelete.value = !showDialogDelete.value;
-    if (index) indexTaskSelected.value = index;
+    if (index) taskStore.indexTaskSelected = index;
 }
 
 function deleteTask() {
-  taskStore.deleteTask( indexTaskSelected.value)
+  taskStore.deleteTask( )
 }
 
 </script>
