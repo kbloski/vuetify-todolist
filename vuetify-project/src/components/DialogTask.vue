@@ -2,7 +2,8 @@
   <div class="text-center pa-4">
     <v-dialog
       v-model="props.dialog"
-      max-width="400"
+      min-width="400"
+      max-width="600"
       persistent
     >
       <!-- <template v-slot:activator="{ props: activatorProps }">
@@ -13,9 +14,22 @@
 
       <v-card
         prepend-icon="mdi-map-marker"
-        text="Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running."
-        title="Use Google's location service?"
+        title="Edit tASK"
       >
+        <v-card-text>
+          <v-text-field 
+            v-model="props.task.title"
+            clearable 
+            label="Title"
+          ></v-text-field>
+          <v-text-field 
+            v-model="props.task.description"
+            clearable 
+            label="Description"
+          ></v-text-field>
+        </v-card-text>
+
+
         <template v-slot:actions>
           <v-spacer></v-spacer>
 
@@ -36,13 +50,14 @@
 import { ref, defineEmits, defineProps } from 'vue';
 
 const props = defineProps({
-    dialog: Boolean
+    dialog: Boolean,
+    task: Object
 })
 
 const emits = defineEmits(['toggle'])
 
 function toggleEmit(){
-    emits('toggle', true)
+    emits('toggle')
 }
 
 

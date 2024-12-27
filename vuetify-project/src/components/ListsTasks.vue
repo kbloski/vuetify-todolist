@@ -9,7 +9,7 @@
     >
       <v-list-subheader>General</v-list-subheader>
       <v-list-item
-        v-for="item in tasks"
+        v-for="item, index in tasks"
         :key="item.value"
         :subtitle="item.description"
         :title="item.title"
@@ -32,18 +32,13 @@
                     v-bind="props"
                 ></v-btn>
             </template>
-            <!-- 
-                <!-- <v-btn
-                color="primary"
-                >
-                Activator slot
-                </v-btn> -->
             <v-list>
                 <v-list-item
                 value='edit'
                 >
                     <v-list-item-title
-                        @click="toggleDialog"
+                        @click="toggleDialog(index)"
+
                     >
                     Edit</v-list-item-title>
                 </v-list-item>
@@ -51,7 +46,7 @@
                 value='delete'
                 >
                     <v-list-item-title
-                        @click="toggleDialog"
+                        @click="toggleDialog(index)"
                     >Delete</v-list-item-title>
                 </v-list-item>
             </v-list>
@@ -60,7 +55,11 @@
       </v-list-item>
     </v-list>
 
-    <DialogTask :dialog="showDialogTaskFields" @toggle="toggleDialog"/>
+    <DialogTask 
+      :dialog="showDialogTaskFields" 
+      @toggle="toggleDialog"
+      :task="tasks[indexTaskSelected]"
+    />
   </div>
 </template>
 
@@ -73,10 +72,16 @@ const props = defineProps({
 })
 
 const tasksSelection = ref([]);
+const indexTaskSelected = ref(0);
 
 const showDialogTaskFields = ref(false);
-function toggleDialog(){
+function toggleDialog( index ){
     showDialogTaskFields.value = !showDialogTaskFields.value;
+    if (index) 
+        indexTaskSelected.value = index
+
+
 }
+
 
 </script>

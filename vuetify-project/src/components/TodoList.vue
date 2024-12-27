@@ -5,6 +5,11 @@
         v-on:keyup.enter="addTask"
         v-model="task.title"
   ></v-text-field>
+    <!-- <v-text-field 
+        label="Description"
+        v-on:keyup.enter="addTask"
+        v-model="task.title"
+  ></v-text-field> -->
 
   <lists-tasks 
     :tasks="tasks"
