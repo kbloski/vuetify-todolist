@@ -60,11 +60,13 @@
 import DialogTask from "./DialogTask.vue";
 import DialogDelete from "./DialogDelete.vue";
 import { inject, watch, ref } from "vue";
+import { useTaskStore } from "@/store/task";
 
 const props = defineProps({
     tasks: Object,
 });
 
+const taskStore = useTaskStore();
 const tasksSelection = ref([]);
 const indexTaskSelected = ref(0);
 
@@ -80,9 +82,8 @@ function toggleDelete(index) {
     if (index) indexTaskSelected.value = index;
 }
 
-const deleteTaskFunciton = inject('deleteTask')
 function deleteTask() {
-  deleteTaskFunciton( indexTaskSelected.value )
+  taskStore.deleteTask( indexTaskSelected.value)
 }
 
 </script>

@@ -25,18 +25,6 @@ import { useTaskStore } from '@/store/task';
 
 const taskStore = useTaskStore();
 const tasks = computed( () => taskStore.tasks);
-// const tasks =  ref([
-//         { 
-//             value: 'notifications', 
-//             title: 'Task Vue 1', 
-//             description: 'Notify me about updates to apps or games that I downloaded' 
-//         },
-//         { 
-//             value: 'documentaction', 
-//             title: 'Learn documantation', 
-//             description: 'Notify me about updates to apps or games that I downloaded' 
-//         },
-// ])
 
 const task = reactive({
     title: '',
@@ -53,9 +41,4 @@ function addTask(){
     task.description = '';
 }
 
-function deleteTask( index ){
-    taskStore.deleteTask( index )
-}
-
-provide('deleteTask', deleteTask)
 </script>
