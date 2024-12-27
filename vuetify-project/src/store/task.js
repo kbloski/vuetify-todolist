@@ -21,8 +21,8 @@ export const useTaskStore = defineStore('task',
     },
     actions: {
         deleteTask(){
-            if (!this.indexTaskSelected) return;
-            this.tasks.splice( this.indexTaskSelected, 1)
+            if (this.indexTaskSelected != null)
+                this.tasks.splice( this.indexTaskSelected, 1)
         },
         addTask( task ){
             this.tasks.push( task)

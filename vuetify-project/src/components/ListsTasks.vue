@@ -43,16 +43,20 @@
             </v-list-item>
         </v-list>
 
-        <DialogTask
-            :dialog="showDialogTaskFields"
-            @toggle="toggleEdit"
-            :task="taskStore.tasks[taskStore.indexTaskSelected]"
-        />
-        <DialogDelete
-            :dialog="showDialogDelete"
-            @toogle="toggleDelete"
-            @delete="deleteTask"
-        ></DialogDelete>
+        <teleport to="body">
+          <div>
+            <DialogTask
+                :dialog="showDialogTaskFields"
+                @toggle="toggleEdit"
+                :task="taskStore.tasks[taskStore.indexTaskSelected]"
+            />
+            <DialogDelete
+                :dialog="showDialogDelete"
+                @toogle="toggleDelete"
+                @delete="deleteTask"
+            ></DialogDelete>
+          </div>
+        </teleport>
     </div>
 </template>
 
@@ -77,7 +81,7 @@ function toggleEdit(index) {
 const showDialogDelete = ref(false);
 function toggleDelete(index) {
     showDialogDelete.value = !showDialogDelete.value;
-    if (index) taskStore.indexTaskSelected = index;
+    if (index != null) taskStore.indexTaskSelected = index;
 }
 
 function deleteTask() {
