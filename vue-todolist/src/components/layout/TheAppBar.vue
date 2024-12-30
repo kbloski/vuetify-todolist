@@ -1,31 +1,29 @@
 <template>
     <v-app-bar
-      :order="order"
+      :order="layoutStore.appBarOrder"
       image="https://picsum.photos/1920/1080?random"
       scroll-behavior="hide colapse elevate fade-image"
-      density="compact"
       flat
     >
         <v-app-bar-nav-icon @click="layoutStore.toggleVisibleSidebar"></v-app-bar-nav-icon>
         <v-app-bar-title>
             Your TODO List
         </v-app-bar-title>
-        <template v-slot:append>
+        <!-- <template v-slot:append>
             <v-switch
-            v-model="order"
+            v-model="layoutStore.appBarOrder"
             false-value="0"
             label=""
             true-value="-1"
             hide-details
             inset
             ></v-switch>
-        </template>
+        </template> -->
     </v-app-bar>
 </template>
 
 <script lang="ts" setup>
 import { useLayoutStore } from '@/store/layout.ts'
-const order = ref(0)
 const layoutStore = useLayoutStore();
 
 </script>
