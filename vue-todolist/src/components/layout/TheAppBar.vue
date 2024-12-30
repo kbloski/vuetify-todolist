@@ -6,13 +6,10 @@
       density="compact"
       flat
     >
-      <!-- title="Application bar" -->
-
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="layoutStore.toggleVisibleSidebar"></v-app-bar-nav-icon>
         <v-app-bar-title>
             Your TODO List
         </v-app-bar-title>
-
         <template v-slot:append>
             <v-switch
             v-model="order"
@@ -24,10 +21,11 @@
             ></v-switch>
         </template>
     </v-app-bar>
-
 </template>
 
 <script lang="ts" setup>
+import { useLayoutStore } from '@/store/layout.ts'
 const order = ref(0)
+const layoutStore = useLayoutStore();
 
 </script>
