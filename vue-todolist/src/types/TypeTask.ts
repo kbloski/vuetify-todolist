@@ -2,12 +2,13 @@ import { EnumTaskPriority } from "@/enum/EnumTaskPriority";
 
 export type TypeTask = {
     id : number;
+    // categoryId?: number; // in future
     title: string;
-    description: string | undefined;
+    description?: string;
     priority: EnumTaskPriority;
-    // categoryId: number;
-    // expires: number;
-
-    createdAt: Date;
+    dayPeriod?: {
+        start: Date, 
+        end: Date
+    } 
 }
 
