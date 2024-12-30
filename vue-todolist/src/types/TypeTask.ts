@@ -1,10 +1,10 @@
-import { TaskPriority } from "@/enum/TaskPriority";
+import { EnumTaskPriority } from "@/enum/EnumTaskPriority";
 
-export type Task = {
+export type TypeTask = {
     id : number;
     title: string;
     description: string | undefined;
-    priority: TaskPriority;
+    priority: EnumTaskPriority;
     // categoryId: number;
     // expires: number;
 

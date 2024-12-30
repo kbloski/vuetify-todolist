@@ -1,4 +1,4 @@
-export enum TaskPriority {
+export enum EnumTaskPriority {
     HEIGHT,
     MEDIUM,
     LOW

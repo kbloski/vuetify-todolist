@@ -36,8 +36,8 @@ Functions:
          title: string,
          description: string || undefined,
          priority: number,
-         timeStart: date || null,
-         timeEnd: date || null,
+         timeStart: date || null, // witch out
+         timeEnd: date || null, // witchout
       }
   5. Możliwość filtrowania tasków przez prioryty, dzień czy godziny
   6. Blokowanie godzin w których są już używane taski
