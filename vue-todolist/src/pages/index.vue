@@ -7,6 +7,7 @@
 <script lang="ts" setup>
 import type { TypeTask } from '@/types/TypeTask';
 import { useTaskStore } from '@/store/task';
+import { EnumTaskPriority } from '@/enum/EnumTaskPriority';
 
 const taskStore = useTaskStore()
 taskStore.getLocalData();

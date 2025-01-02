@@ -31,6 +31,12 @@ import { EnumTaskPriority } from '@/enum/EnumTaskPriority';
 import type { TypeTask } from '@/types/TypeTask';
 import { defineEmits } from 'vue';
 
+const props = defineProps<{
+    title?: TypeTask['title'],
+    description?: TypeTask['description'],
+    priority?: TypeTask['priority']
+}>()
+
 
 const emits = defineEmits<{
     (event: 'submit', formData: Omit<TypeTask, 'id'>) : void,
@@ -38,10 +44,9 @@ const emits = defineEmits<{
 
 
 const valid = ref(false)
-const title = ref();
-const description = ref();
-const priority = ref(EnumTaskPriority.LOW)
-// const dayPeriod = ref<>()
+const title = ref(props.title);
+const description = ref( props.description);
+const priority = ref(props.priority ?? EnumTaskPriority.LOW)
 
 function onSubmit(){
     if (
