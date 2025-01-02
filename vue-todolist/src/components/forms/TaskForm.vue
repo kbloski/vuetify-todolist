@@ -29,7 +29,6 @@
 <script lang="ts" setup>
 import { EnumTaskPriority } from '@/enum/EnumTaskPriority';
 import type { TypeTask } from '@/types/TypeTask';
-import { defineEmits } from 'vue';
 
 const props = defineProps<{
     title?: TypeTask['title'],
@@ -52,7 +51,7 @@ function onSubmit(){
     if (
         !valid.value
         || !title.value
-        
+
     ) return;
 
     emits('submit', {
