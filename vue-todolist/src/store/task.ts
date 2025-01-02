@@ -9,14 +9,7 @@ interface TaskStore {
 
 export const useTaskStore = defineStore('app', {
   state: () : TaskStore => ({
-    tasks: [
-      {
-        id: 1,
-        title: 'Tytuł #1',
-        description: 'Podtytuł 1',
-        priority: EnumTaskPriority.LOW
-      }
-    ]
+    tasks: [ ]
   }),
   actions: {
     addTask( task : Omit<TypeTask, 'id'>){
