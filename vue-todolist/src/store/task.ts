@@ -19,8 +19,12 @@ export const useTaskStore = defineStore('app', {
     ]
   }),
   actions: {
-    addTask( task : TypeTask){
-      this.tasks.push( task )
+    addTask( task : Omit<TypeTask, 'id'>){
+      const id : TypeTask['id'] = Math.ceil(Math.random() * 100); 
+      this.tasks.push( {
+        id,
+        ...task
+      } )
     }
   }
 })
