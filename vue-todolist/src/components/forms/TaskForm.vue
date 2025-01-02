@@ -44,13 +44,15 @@ const emits = defineEmits<{
 
 
 const valid = ref(false)
-const title = ref(props.title);
+const title = ref(props.title );
 const description = ref( props.description);
 const priority = ref(props.priority ?? EnumTaskPriority.LOW)
 
 function onSubmit(){
     if (
         !valid.value
+        || !title.value
+        
     ) return;
 
     emits('submit', {
