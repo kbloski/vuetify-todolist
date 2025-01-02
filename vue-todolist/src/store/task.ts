@@ -7,7 +7,7 @@ interface TaskStore {
   tasks: TypeTask[]
 }
 
-export const useTaskStore = defineStore('app', {
+export const useTaskStore = defineStore('taskStore', {
   state: () : TaskStore => ({
     tasks: [ ]
   }),
