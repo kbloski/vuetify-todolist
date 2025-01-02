@@ -20,11 +20,27 @@ export const useTaskStore = defineStore('app', {
   }),
   actions: {
     addTask( task : Omit<TypeTask, 'id'>){
-      const id : TypeTask['id'] = Math.ceil(Math.random() * 100); 
+      const id : TypeTask['id'] = Math.ceil(Math.random() * 10000); 
       this.tasks.push( {
         id,
         ...task
       } )
+
+      this.saveLocalData()
+    },
+
+    deleteTask( taskId : TypeTask['id']){
+      this.tasks = this.tasks.filter( task => task.id !== taskId)
+      this.saveLocalData()
+    },
+
+    getLocalData(){
+      const items = localStorage.getItem('tasks');
+      this.tasks = !items ? [] : JSON.parse( items );
+    },
+    saveLocalData(){
+      localStorage.setItem('tasks', JSON.stringify( this.tasks ))
     }
-  }
+  },
+
 })

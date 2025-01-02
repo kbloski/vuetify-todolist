@@ -1,6 +1,5 @@
 <template>
     <v-container max-width="600px">
-        {{ selectedTasks }}
         <v-list
             v-model:selected="selectedTasks"
             lines="three"
@@ -24,6 +23,32 @@
                         <v-checkbox-btn :model-value="isSelected"></v-checkbox-btn>
                     </v-list-item-action>
                 </template>
+
+                <template v-slot:append>
+                    <v-menu
+                    >
+                    <template v-slot:activator="{ props }">
+                        <v-btn
+                            color="grey-lighten-1"
+                            icon="mdi-information"
+                            v-bind="props"
+                            variant="text"
+                        ></v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item
+                            v-for="(item, index) in items"
+                            :key="index"
+                        >
+                        <v-list-item-title>
+                            <v-btn
+                                @click="item.onclick( task.id )"
+                            >{{ item.title }}</v-btn>
+                        </v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                    </v-menu>
+                </template>
             </v-list-item>
         </v-list>
     </v-container>
@@ -33,11 +58,26 @@
 import { EnumTaskPriority } from '@/enum/EnumTaskPriority';
 import type { TypeTask } from '@/types/TypeTask';
 
+import { useTaskStore } from '@/store/task';
+
+const taskStore = useTaskStore()
+
 const props = defineProps<{
     tasks: TypeTask[];
 }>()
 
 const selectedTasks = ref<TypeTask['id'][]>([]);
+
+const items : {
+    title: string, 
+    onclick: ( id : TypeTask['id']) => void
+}[]= 
+[
+    { title: 'Update', onclick: ( id ) => {}},
+    { title: 'Delete', onclick: ( id ) => { 
+        taskStore.deleteTask( id ) } 
+    },
+]
 
 
 </script>

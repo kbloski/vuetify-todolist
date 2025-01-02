@@ -9,6 +9,7 @@ import type { TypeTask } from '@/types/TypeTask';
 import { useTaskStore } from '@/store/task';
 
 const taskStore = useTaskStore()
+taskStore.getLocalData();
 
 function onSubmitTask(taskData : Omit<TypeTask, 'id'>){
   taskStore.addTask( taskData )
