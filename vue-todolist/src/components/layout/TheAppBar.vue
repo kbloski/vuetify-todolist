@@ -8,21 +8,11 @@
         <v-app-bar-title>
             Your TODO List
         </v-app-bar-title>
-        <!-- <template v-slot:append>
-            <v-switch
-            v-model="layoutStore.appBarOrder"
-            false-value="0"
-            label=""
-            true-value="-1"
-            hide-details
-            inset
-            ></v-switch>
-        </template> -->
     </v-app-bar>
 </template>
 
 <script lang="ts" setup>
-import { useLayoutStore } from '@/store/layout.ts'
+import { useLayoutStore } from '@/store/layout'
 const layoutStore = useLayoutStore();
 
 </script>
