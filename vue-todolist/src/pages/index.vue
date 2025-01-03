@@ -1,7 +1,6 @@
 <template>
   <task-form  @submit="onSubmitTask"/>
   <task-list :tasks="taskStore.tasks"/>
-  <!-- <HelloWorld /> -->
 </template>
 
 <script lang="ts" setup>

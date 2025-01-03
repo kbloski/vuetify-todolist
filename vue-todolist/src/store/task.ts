@@ -4,12 +4,14 @@ import type { TypeTask } from '@/types/TypeTask'
 import { defineStore } from 'pinia'
 
 interface TaskStore {
-  tasks: TypeTask[]
+  tasks: TypeTask[],
+  selectedTasks: TypeTask['id'][]
 }
 
 export const useTaskStore = defineStore('taskStore', {
   state: () : TaskStore => ({
-    tasks: [ ]
+    tasks: [ ],
+    selectedTasks: []
   }),
   actions: {
     addTask( task : Omit<TypeTask, 'id'>){
@@ -27,13 +29,29 @@ export const useTaskStore = defineStore('taskStore', {
       this.saveLocalData()
     },
 
+    // selectTask( taskId: TypeTask['id']){
+    //   this.selectedTasks.push( taskId );
+    //   this.saveLocalData()
+    // },
+
+    // unselectTask( taskId: TypeTask['id']){
+    //   this.selectedTasks = this.selectedTasks.filter( id => id != taskId);
+    //   this.saveLocalData()
+    // },
+
+
+
     getLocalData(){
-      const items = localStorage.getItem('tasks');
-      this.tasks = !items ? [] : JSON.parse( items );
+      const itemsTasks = localStorage.getItem('tasks');
+      this.tasks = !itemsTasks ? [] : JSON.parse( itemsTasks );
+      
+      const itemsSelectedTasks = localStorage.getItem("selected-tasks");
+      this.selectedTasks = !itemsSelectedTasks ? [] : JSON.parse( itemsSelectedTasks );
     },
+
     saveLocalData(){
       localStorage.setItem('tasks', JSON.stringify( this.tasks ))
+      localStorage.setItem('selected-tasks', JSON.stringify( this.selectedTasks))
     }
   },
-
 })

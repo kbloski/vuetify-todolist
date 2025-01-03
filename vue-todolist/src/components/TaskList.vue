@@ -1,7 +1,7 @@
 <template>
     <v-container max-width="600px">
         <v-list
-            v-model:selected="selectedTasks"
+            v-model:selected="selectedItems"
             lines="three"
             select-strategy="leaf"
         >
@@ -57,23 +57,29 @@
 <script lang="ts" setup>
 import { EnumTaskPriority } from '@/enum/EnumTaskPriority';
 import type { TypeTask } from '@/types/TypeTask';
-
 import { useTaskStore } from '@/store/task';
 
-const taskStore = useTaskStore()
 
+const taskStore = useTaskStore()
 const props = defineProps<{
     tasks: TypeTask[];
 }>()
 
-const selectedTasks = ref<TypeTask['id'][]>([]);
+// Save selected tasks
+const selectedItems = ref(taskStore.selectedTasks);
+watch( selectedItems, () => {
+    taskStore.selectedTasks = selectedItems.value;
+    taskStore.saveLocalData()
+})
 
 const items : {
     title: string, 
     onclick: ( id : TypeTask['id']) => void
 }[]= 
 [
-    { title: 'Update', onclick: ( id ) => {}},
+    { title: 'Update', onclick: ( id ) => {
+        console.log( id )
+    }},
     { title: 'Delete', onclick: ( id ) => { 
         taskStore.deleteTask( id ) } 
     },

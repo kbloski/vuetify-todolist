@@ -9,16 +9,15 @@ Pages
 
 Components 
   Layout
-    - TheNavigation
-    - TheHeader
-    - TheFooter ( Contact with me )
+    + TheNavigation
+    + TheHeader
   
   Forms
-    - TaskForm  
+    + TaskForm  
     - CategoryForm
 
   Lists
-    - TasksList
+    + TasksList
     - CategoriesLists
 
   - SearchPanel
