@@ -51,6 +51,7 @@
                 </template>
             </v-list-item>
         </v-list>
+        <update-task-dialog></update-task-dialog>
     </v-container>
 </template>
 
@@ -59,8 +60,9 @@ import { EnumTaskPriority } from '@/enum/EnumTaskPriority';
 import type { TypeTask } from '@/types/TypeTask';
 import { useTaskStore } from '@/store/task';
 
-
 const taskStore = useTaskStore()
+taskStore.getLocalData()
+
 const props = defineProps<{
     tasks: TypeTask[];
 }>()
@@ -77,8 +79,10 @@ const items : {
     onclick: ( id : TypeTask['id']) => void
 }[]= 
 [
-    { title: 'Update', onclick: ( id ) => {
-        console.log( id )
+    { title: 'Update', onclick: ( taskId ) => {
+        taskStore.setIndexSelectedTaskById( taskId )
+
+        taskStore.toggleDialogUpdate()
     }},
     { title: 'Delete', onclick: ( id ) => { 
         taskStore.deleteTask( id ) } 

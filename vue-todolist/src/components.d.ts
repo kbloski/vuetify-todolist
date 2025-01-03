@@ -16,5 +16,6 @@ declare module 'vue' {
     TheAppBar: typeof import('./components/layout/TheAppBar.vue')['default']
     TheHeader: typeof import('./components/layout/TheHeader.vue')['default']
     TheSidebar: typeof import('./components/layout/TheSidebar.vue')['default']
+    UpdateTaskDialog: typeof import('./components/dialog/UpdateTaskDialog.vue')['default']
   }
 }
