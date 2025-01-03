@@ -13,9 +13,9 @@
                 :subtitle="task.description"
                 :value="task.id"
                 :class="{
-                    'bg-red' : task.priority === EnumTaskPriority.HEIGHT,
-                    'bg-warning' : task.priority === EnumTaskPriority.MEDIUM,
-                    'bg-success' : task.priority === EnumTaskPriority.LOW
+                    'bg-white' : task.priority === EnumTaskPriority.HEIGHT,
+                    'bg-gray' : task.priority === EnumTaskPriority.MEDIUM,
+                    'bg-black' : task.priority === EnumTaskPriority.LOW
                 }"
             >
                 <template v-slot:prepend="{ isSelected }">
