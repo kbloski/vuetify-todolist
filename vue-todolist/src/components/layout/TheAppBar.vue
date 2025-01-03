@@ -1,7 +1,6 @@
 <template>
     <v-app-bar
       :order="layoutStore.appBarOrder"
-      image="https://picsum.photos/1920/1080?random"
       scroll-behavior="hide colapse elevate fade-image"
       flat
     >
